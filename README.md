@@ -11,3 +11,12 @@ If you are using Docker PostgreSQL image, run a Docker container using command:
 ```
 docker run -d --name postgresql -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres:12.4
 ```
+Then create a database called "store".
+
+To create the tables of the project you can run:
+```
+cd backend/database 
+sequelize db:migrate
+```
+If you don't have the sequelize cli installed, you can simple run the .sql file on the backend/database/sql directory.
+

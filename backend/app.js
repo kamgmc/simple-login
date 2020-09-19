@@ -3,8 +3,8 @@ const express = require('express');
 const logger = require('morgan');
 const cors = require('cors')
 
-const indexRouter = require('./routes/login');
-const usersRouter = require('./routes/signup');
+const loginController = require('./controllers/login');
+const signupController = require('./controllers/signup');
 
 const app = express();
 
@@ -13,8 +13,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/login', loginController);
+app.use('/signup', signupController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
