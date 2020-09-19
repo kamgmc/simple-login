@@ -9,5 +9,5 @@
 If you are using Docker PostgreSQL image, run a Docker container using command:
 
 ```
-docker run -d --name postgresql -e POSTGRES_USER=docker -e POSTGRES_PASSWORD=docker postgres:12.4
+docker run -d --name postgresql -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres:12.4
 ```
