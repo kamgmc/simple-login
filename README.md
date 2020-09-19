@@ -20,3 +20,9 @@ sequelize db:migrate
 ```
 If you don't have the sequelize cli installed, you can simple run the .sql file on the backend/database/sql directory.
 
+###Backend
+#####Start the Express server
+```
+cd backend
+npm run start
+```
