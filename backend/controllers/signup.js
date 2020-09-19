@@ -8,10 +8,13 @@ router.post('/', async function (req, res) {
     const body = req.body;
     let {first_name, last_name, email, password} = body;
 
-    if (!userValidator(body)){
-        res.status(403).json({err: 'Bad request'});
+    // Validates incoming body data
+    if (!userValidator(body)) {
+        res.status(400).json({err: 'Bad request'});
         return;
     }
+
+    // Create user
     await User.create({
         first_name: first_name,
         last_name: last_name,
@@ -22,7 +25,11 @@ router.post('/', async function (req, res) {
             res.json({data: user});
         })
         .catch(function (err) {
-            res.status(500).json({err: err});
+            res.status(403).json({
+                errors: err.errors.map(function (error) {
+                    return error.message;
+                })
+            });
         });
 });
 

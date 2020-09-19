@@ -27,7 +27,8 @@ const User = sequelize.define('User', {
     }
 }, {tableName: 'account'});
 
-User.prototype.toJSON =  function () {
+// Hidden fields to the user
+User.prototype.toJSON = function () {
     let values = Object.assign({}, this.get());
 
     delete values.password;
