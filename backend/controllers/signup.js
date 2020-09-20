@@ -22,7 +22,7 @@ router.post('/', async function (req, res) {
         password: bcrypt.hashSync(password, 10)
     })
         .then(function (user) {
-            res.json({data: user});
+            res.json({user: user});
         })
         .catch(function (err) {
             res.status(403).json({
