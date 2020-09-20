@@ -1,0 +1,130 @@
+$weight-bold: 500;
+
+.side-background {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("/assets/background-login.jpg");
+  background-size: cover;
+  background-position: center center;
+  box-sizing: content-box;
+  padding-bottom: 0;
+
+  .logo {
+    position: absolute;
+    width: 96px;
+    top: 36px;
+    left: 38px;
+  }
+
+  .help-container {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+
+    .help-text {
+      text-align: right;
+      font-size: 9px;
+      letter-spacing: 0;
+    }
+
+    .help-mail {
+      text-align: right;
+      font-size: 15px;
+      font-weight: $weight-bold;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.login {
+  -webkit-box-shadow: -1px 0px 6px 0px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: -1px 0px 6px 0px rgba(0, 0, 0, 0.36);
+  box-shadow: -1px 0px 6px 0px rgba(0, 0, 0, 0.36);
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper-centered {
+    width: 100%;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 48px;
+      height: auto;
+    }
+
+    .title {
+      margin-top: 12px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin-bottom: 36px;
+    }
+  }
+
+  form {
+    width: 100%;
+
+    .field {
+      max-width: 426px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .checkbox {
+      margin-top: 12px;
+    }
+
+    .buttons {
+      margin-top: 24px;
+
+      .button {
+        min-width: 246px;
+      }
+    }
+  }
+
+  .forgot-password, .forgot-password a {
+    text-align: center;
+    color: #60686F;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  .sign-up {
+    margin-top: 20px;
+    margin-bottom: 18px;
+    text-align: center;
+    color: #60686F;
+    font-size: 17px;
+
+    a {
+      font-weight: $weight-bold;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login {
+    height: 100vh;
+    box-shadow: none;
+
+    form {
+      padding: 0 24px;
+    }
+  }
+}

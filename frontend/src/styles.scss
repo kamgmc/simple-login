@@ -1,39 +1,147 @@
+@charset "utf-8";
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
+// Overwritten bulma variables
+$primary: #E95A0C;
+$input-background-color: #F2F2F2;
+$input-border-color: transparent;
+$input-hover-border-color: transparent;
+$input-focus-border-color: #60686F;
+$input-color: #60686F;
+$input-focus-color: #A2A2A2;
+$input-placeholder-color: #A2A2A2;
+$danger: #D34545;
+$button-background-color: #989898;
+$button-border-color: #989898;
+$button-text-color: #FFFFFF;
+$button-disabled-background-color: #989898;
+$button-disabled-border-color: #989898;
+$family-sans-serif: 'Roboto', sans-serif;
+$weight-bold: 500;
+$title-size: 28px;
+$title-weight: 500;
+$subtitle-size: 16px;
+$subtitle-weight: 400;
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
+@import "../node_modules/bulma/bulma.sass";
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$frontend-primary: mat-palette($mat-indigo);
-$frontend-accent: mat-palette($mat-pink, A200, A100, A400);
+//  INPUTS
+.control {
+  color: $input-focus-color;
 
-// The warn palette is optional (defaults to red).
-$frontend-warn: mat-palette($mat-red);
+  .input {
+    color: $input-focus-color;
+    border-radius: 0;
+    box-shadow: none;
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$frontend-theme: mat-light-theme((
-  color: (
-    primary: $frontend-primary,
-    accent: $frontend-accent,
-    warn: $frontend-warn,
-  )
-));
+    &:focus {
+      box-shadow: none;
+      color: $input-color;
+    }
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($frontend-theme);
+    &.ng-invalid.ng-touched {
+      border-color: $danger;
+    }
+  }
 
-/* You can add global styles to this file, and also import other style files */
+  &.has-icons-right, &.has-icons-left {
+    .input {
+      padding-left: 3em;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+      & ~ .icon {
+        color: $input-focus-color;
+        width: 3em;
+      }
+
+      &:focus ~ .icon {
+        color: $input-focus-color;
+      }
+    }
+  }
+
+  &.has-icons-left {
+    .input ~ .icon i {
+      margin-right: 12px;
+    }
+  }
+
+  .hint {
+    display: block;
+    text-align: left;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+}
+
+//  CHECKBOX
+.checkbox {
+  font-size: 13px;
+  color: $input-color;
+  cursor: default;
+
+  &:hover {
+    color: $input-color;
+  }
+
+  a {
+    color: $input-color;
+    font-weight: $weight-bold;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+//  BUTTONS
+.button {
+  border-radius: 5px;
+  color: #FFFFFF;
+  transition: .16s all ease-out;
+  background-color: #989898;
+  border-color: #989898;
+
+
+  &[disabled] {
+    opacity: .5;
+    color: #FFFFFF;
+  }
+
+  &:hover:not([disabled]) {
+    border-color: $primary;
+    background-color: $primary;
+    color: #FFFFFF;
+  }
+
+  &:active, &:focus:not(:active), &.is-focused:not(:active) {
+    box-shadow: none;
+    border-color: $primary-dark;
+    background-color: $primary-dark;
+    color: #FFFFFF;
+  }
+
+  &.is-medium {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  &.is-white {
+    &:hover {
+      color: #FFFFFF;
+      transition: .16s all ease-out;
+      background-color: #60686F;
+      border-color: #60686F;
+    }
+
+    &:active, &:focus:not(:active), &.is-focused:not(:active) {
+      box-shadow: none;
+      border-color: #989898;
+      background-color: #989898;
+      color: #FFFFFF;
+    }
+  }
+}
