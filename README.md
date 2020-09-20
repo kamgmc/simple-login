@@ -26,3 +26,13 @@ If you don't have the sequelize cli installed, you can simple run the .sql file 
 cd backend
 npm run start
 ```
+You can access on http://localhost:3000
+
+
+### Frontend
+##### Start the Angular server
+```
+cd frontend
+npm run start
+```
+You can access on http://localhost:4200
