@@ -17,9 +17,9 @@ router.post('/', async function (req, res) {
 
     // Create user
     await User.create({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
+        firstName: firstName.toString().trim().toLowerCase(),
+        lastName: lastName.toString().trim().toLowerCase(),
+        email: email.toString().trim().toLowerCase(),
         password: bcrypt.hashSync(decrypt(password, 'APPLICATION_SECRET_KEY'), 10)
     })
         .then(function (user) {

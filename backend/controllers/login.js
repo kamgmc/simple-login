@@ -11,7 +11,7 @@ router.post('/', async function (req, res) {
     // Find user based on email
     const user = await User.findOne({
         where: {
-            email: body.email
+            email: body.email.toString().trim().toLowerCase()
         }
     });
 

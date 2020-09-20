@@ -26,6 +26,8 @@ export class AuthService {
    * @param request Login request object
    */
   public login(request: LoginRequest): Promise<{ token: string, user: User }> {
+    // Clean fields before send
+    request.email = request.email.trim().toLowerCase();
     // Encrypt password before send
     request.password = this.cipher.encrypt(request.password, environment.appKey);
     return this.http.post(`${environment.baseUrl}login`, request).toPromise()
