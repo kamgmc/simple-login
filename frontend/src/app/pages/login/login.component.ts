@@ -24,11 +24,7 @@ export class LoginComponent implements OnInit {
       ]),
       password: new FormControl('', [
         Validators.required
-      ]),
-      terms: new FormControl(false, [
-          Validators.requiredTrue
-        ]
-      )
+      ])
     });
   }
 

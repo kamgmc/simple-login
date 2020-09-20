@@ -12,6 +12,11 @@
       <app-notification
         *ngIf="queryParams.get('created')"
         message="User created successfully, please login to access dashboard"></app-notification>
+      <app-notification
+        *ngIf="!validLogin"
+        type="danger"
+        [closeable]="false"
+        message="Invalid email or password"></app-notification>
       <div class="logo-wrapper">
         <img src="assets/isotype.png" alt="Isotype">
         <div class="title has-text-primary">Login</div>
@@ -53,20 +58,11 @@
               *ngIf="password.invalid && password.touched && password.errors.required">
             This field is required.
           </span>
-            <span
-              class="hint has-text-danger"
-              *ngIf="!validLogin">
-            Invalid email or password.
-          </span>
           </p>
         </div>
-        <label class="checkbox">
-          <input type="checkbox" formControlName="terms">
-          I agree to the <a href="#">Terms and Conditions</a>.
-        </label>
         <div class="buttons is-centered">
           <button
-            class="button is-medium"
+            class="button is-medium is-primary"
             [ngClass]="{'is-loading': isLoading}"
             [disabled]="loginForm.invalid"
             (click)="login()">

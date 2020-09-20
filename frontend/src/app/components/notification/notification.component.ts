@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class NotificationComponent implements OnInit {
   @Input() type = 'success';
+  @Input() closeable = true;
   @Input() message: string;
   visible = true;
 

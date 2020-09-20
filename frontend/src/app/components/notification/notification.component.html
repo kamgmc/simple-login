@@ -1,4 +1,4 @@
 <div *ngIf="visible" class="notification has-text-centered" [ngClass]="'is-' + type">
-  <button class="delete" (click)="close()"></button>
+  <button *ngIf="closeable" class="delete" (click)="close()"></button>
   {{ this.message }}
 </div>
