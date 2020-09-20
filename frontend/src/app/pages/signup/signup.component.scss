@@ -1,45 +1,5 @@
 $weight-bold: 500;
 
-.side-background {
-  position: relative;
-  min-height: 100vh;
-  background-image: url("/assets/background-1.jpg");
-  background-size: cover;
-  background-position: center center;
-  box-sizing: content-box;
-  padding-bottom: 0;
-
-  .logo {
-    position: absolute;
-    width: 96px;
-    top: 36px;
-    left: 38px;
-  }
-
-  .help-container {
-    position: absolute;
-    right: 18px;
-    bottom: 18px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: column;
-
-    .help-text {
-      text-align: right;
-      font-size: 9px;
-      letter-spacing: 0;
-    }
-
-    .help-mail {
-      text-align: right;
-      font-size: 15px;
-      font-weight: $weight-bold;
-      letter-spacing: 0;
-    }
-  }
-}
-
 #signup {
   -webkit-box-shadow: -1px 0px 6px 0px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: -1px 0px 6px 0px rgba(0, 0, 0, 0.36);
@@ -119,7 +79,7 @@ $weight-bold: 500;
 }
 
 @media (max-width: 768px) {
-  .login {
+  #signup {
     height: 100vh;
     box-shadow: none;
 

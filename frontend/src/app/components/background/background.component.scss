@@ -1,0 +1,38 @@
+.side-background {
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  box-sizing: content-box;
+  padding-bottom: 0;
+
+  .logo {
+    position: absolute;
+    width: 96px;
+    top: 24px;
+    left: 24px;
+  }
+
+  .help-container {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+
+    .help-text {
+      text-align: right;
+      font-size: 9px;
+      letter-spacing: 0;
+    }
+
+    .help-mail {
+      text-align: right;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+  }
+}

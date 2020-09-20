@@ -8,6 +8,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {NotificationComponent} from './components/notification/notification.component';
+import { BackgroundComponent } from './components/background/background.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {NotificationComponent} from './components/notification/notification.comp
     LoginComponent,
     DashboardComponent,
     SignupComponent,
-    NotificationComponent
+    NotificationComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,

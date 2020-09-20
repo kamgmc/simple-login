@@ -1,13 +1,8 @@
 <div class="columns is-paddingless is-mobile">
-  <div class="column is-two-fifths is-hidden-mobile side-background">
-    <img src="assets/logo.png" alt="Logo" class="logo">
-    <div class="help-container has-text-primary">
-      <div class="help-text">¿NEED HELP?</div>
-      <div class="help-text">LET US KNOW</div>
-      <div class="help-mail">help@example.com</div>
-    </div>
+  <div class="column is-two-fifths is-hidden-mobile padding-right-0 padding-bottom-0">
+    <app-background backgroundImage="url('/assets/background-login.jpg')"></app-background>
   </div>
-  <div class="column login is-paddingless is-flex">
+  <div id="login" class="column is-paddingless is-flex">
     <div class="wrapper-centered">
       <app-notification
         *ngIf="queryParams.get('created')"
