@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {User} from '../models/user';
 import {LoginRequest} from '../models/requests/login-request';
+import {SignupRequest} from '../models/requests/signup-request';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,14 @@ export class AuthService {
 
         return {user, token};
       });
+  }
+
+  /**
+   * Signup call to API
+   * @param request Sign request object
+   */
+  public signup(request: SignupRequest): Promise<any> {
+    return this.http.post(`${environment.baseUrl}signup`, request).toPromise();
   }
 
   /**

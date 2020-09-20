@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   validLogin = true;
   isLoading = false;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -38,6 +38,10 @@ export class LoginComponent implements OnInit {
 
   get password(): any {
     return this.loginForm.get('password');
+  }
+
+  get queryParams(): any {
+    return this.route.snapshot.queryParamMap;
   }
 
   login(): void {

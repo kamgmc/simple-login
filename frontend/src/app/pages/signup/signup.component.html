@@ -1,0 +1,108 @@
+<div class="columns is-paddingless is-mobile">
+  <div class="column is-two-fifths is-hidden-mobile side-background">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+    <div class="help-container has-text-primary">
+      <div class="help-text">¿NEED HELP?</div>
+      <div class="help-text">LET US KNOW</div>
+      <div class="help-mail">help@example.com</div>
+    </div>
+  </div>
+  <div id="signup" class="column is-paddingless is-flex">
+    <div class="wrapper-centered">
+      <div class="logo-wrapper">
+        <img src="assets/isotype.png" alt="Isotype">
+        <div class="title has-text-primary">Sign up</div>
+        <div class="subtitle">Start shopping with us</div>
+      </div>
+      <form class="has-text-centered" [formGroup]="signupForm">
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input"
+                   type="text"
+                   formControlName="firstName"
+                   placeholder="First name"/>
+            <span class="icon is-small is-left"><i class="fal fa-user"></i>|</span>
+            <span class="hint has-text-danger"
+                  *ngIf="firstName.invalid && firstName.touched && firstName.errors.required">
+              This field is required.
+            </span>
+            <span class="hint has-text-danger"
+                  *ngIf="firstName.invalid && firstName.touched && firstName.errors.pattern">
+              Invalid format
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input"
+                   type="text"
+                   formControlName="lastName"
+                   placeholder="Last name"/>
+            <span class="icon is-small is-left"><i class="fal fa-address-card"></i>|</span>
+            <span class="hint has-text-danger"
+                  *ngIf="lastName.invalid && lastName.touched && lastName.errors.required">
+              This field is required.
+            </span>
+            <span class="hint has-text-danger"
+                  *ngIf="lastName.invalid && lastName.touched && lastName.errors.pattern">
+              Invalid format
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input"
+                   type="email"
+                   formControlName="email"
+                   placeholder="Email"/>
+            <span class="icon is-small is-left"><i class="fal fa-envelope"></i>|</span>
+            <span class="hint has-text-danger"
+                  *ngIf="email.invalid && email.touched && email.errors.required">
+              This field is required.
+            </span>
+            <!--suppress TypeScriptUnresolvedVariable -->
+            <span class="hint has-text-danger"
+                  *ngIf="email.invalid && email.touched && email.errors.email">
+              Invalid format
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <input class="input"
+                   type="password"
+                   formControlName="password"
+                   placeholder="Password"
+                   [ngClass]="{'is-danger': this.password.touched && this.password.error?.required}">
+            <span class="icon is-small is-left"><i class="far fa-lock"></i>|</span>
+            <span class="hint has-text-danger"
+                  *ngIf="password.invalid && password.touched && password.errors.required">
+              This field is required.
+            </span>
+            <span class="hint has-text-danger"
+                  *ngIf="password.invalid && password.touched && password.errors?.pattern">
+              Password must have at least 8 characters.
+            </span>
+            <span class="hint has-text-danger" *ngIf="!validSignup">
+              Invalid email or password.
+            </span>
+          </p>
+        </div>
+        <label class="checkbox">
+          <input type="checkbox" formControlName="terms">
+          I agree to the <a href="#">Terms and Conditions</a>.
+        </label>
+        <div class="buttons is-centered">
+          <button
+            class="button is-medium is-primary"
+            [ngClass]="{'is-loading': isLoading}"
+            [disabled]="signupForm.invalid"
+            (click)="signup()">
+            Signup
+          </button>
+        </div>
+      </form>
+      <div class="sign-up">Already have an account? <a routerLink="/login" class="has-text-primary">Login</a></div>
+    </div>
+  </div>
+</div>

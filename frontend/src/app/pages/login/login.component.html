@@ -9,6 +9,9 @@
   </div>
   <div class="column login is-paddingless is-flex">
     <div class="wrapper-centered">
+      <app-notification
+        *ngIf="queryParams.get('created')"
+        message="User created successfully, please login to access dashboard"></app-notification>
       <div class="logo-wrapper">
         <img src="assets/isotype.png" alt="Isotype">
         <div class="title has-text-primary">Login</div>
@@ -22,12 +25,13 @@
               type="email"
               formControlName="email"
               placeholder="Email"/>
-            <span class="icon is-small is-left"><i class="fal fa-user"></i>|</span>
+            <span class="icon is-small is-left"><i class="far fa-envelope"></i>|</span>
             <span
               class="hint has-text-danger"
               *ngIf="email.invalid && email.touched && email.errors.required">
             This field is required.
           </span>
+            <!--suppress TypeScriptUnresolvedVariable -->
             <span
               class="hint has-text-danger"
               *ngIf="email.invalid && email.touched && email.errors.email">
@@ -73,7 +77,7 @@
       <div class="forgot-password">
         <a href="#">¿Forgot password?</a>
       </div>
-      <div class="sign-up">You don't have an account? <a href="#" class="has-text-primary">Sign up</a></div>
+      <div class="sign-up">You don't have an account? <a routerLink="/signup" class="has-text-primary">Sign up</a></div>
     </div>
   </div>
 </div>
