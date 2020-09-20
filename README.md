@@ -1,11 +1,11 @@
-##Versions
+## Versions
 [![Version](https://img.shields.io/static/v1?label=Express&message=4.17&color=blue)]()
 [![Version](https://img.shields.io/static/v1?label=Angular&message=10.1.2&color=blue)]()
 [![Version](https://img.shields.io/static/v1?label=PostgreSQL&message=12.4&color=blue)]()
 
-##Getting Started
+## Getting Started
 
-###Database
+### Database
 If you are using Docker PostgreSQL image, run a Docker container using command:
 
 ```
@@ -20,8 +20,8 @@ sequelize db:migrate
 ```
 If you don't have the sequelize cli installed, you can simple run the .sql file on the backend/database/sql directory.
 
-###Backend
-#####Start the Express server
+### Backend
+##### Start the Express server
 ```
 cd backend
 npm run start
