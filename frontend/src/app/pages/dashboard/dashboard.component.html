@@ -1,1 +1,31 @@
-<p>dashboard works!</p>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="columns is-centered is-vcentered is-mobile">
+      <div class="avatar is-inline-block">
+        <figure class="image is-128x128">
+          <img src="assets/user.jpg" alt="Avatar" class="is-rounded">
+        </figure>
+      </div>
+      <div class="titles is-inline-block has-text-centered">
+        <h2
+          class="title"
+          *ngIf="user && user.firstName && user.lastName">
+          {{user.firstName}} {{user.lastName}}
+        </h2>
+        <h3
+          class="subtitle"
+          *ngIf="user && user.email">
+          {{user.email}}
+        </h3>
+      </div>
+      <div class="buttons mt-4">
+        <button
+          class="button is-white"
+          [ngClass]="{'is-loading': isLoading}"
+          (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

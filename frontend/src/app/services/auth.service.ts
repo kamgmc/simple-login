@@ -39,6 +39,19 @@ export class AuthService {
   }
 
   /**
+   * Logout
+   */
+  public logout(): Promise<any> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        resolve();
+      }, 1000);
+    });
+  }
+
+  /**
    * Signup call to API
    * @param request Sign request object
    */

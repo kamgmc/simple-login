@@ -1,0 +1,25 @@
+.hero-body {
+  .columns {
+    flex-direction: column;
+
+    .avatar {
+      img{
+        border-radius: 50%;
+        -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+        -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+      }
+    }
+
+    .titles {
+      .title{
+        margin-bottom: 4px;
+      }
+
+      .subtitle{
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
