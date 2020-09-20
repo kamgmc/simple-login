@@ -9,13 +9,15 @@ const User = sequelize.define('User', {
         autoIncrement: true,
         allowNull: false
     },
-    first_name: {
+    firstName: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: false,
+        field: "first_name"
     },
-    last_name: {
+    lastName: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: false,
+        field: "last_name"
     },
     email: {
         type: Sequelize.STRING(255),
@@ -24,8 +26,16 @@ const User = sequelize.define('User', {
     password: {
         type: Sequelize.STRING(255),
         allowNull: false,
+    },
+    createdAt: {
+      type: Sequelize.DATE,
+      field: "created_at"
+    },
+    updatedAt: {
+      type: Sequelize.DATE,
+      field: "updated_at",
     }
-}, {tableName: 'account'});
+}, {tableName: 'user'});
 
 // Hidden fields to the user
 User.prototype.toJSON = function () {

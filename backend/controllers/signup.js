@@ -6,7 +6,7 @@ const userValidator = require('../database/validators/userValidator')
 
 router.post('/', async function (req, res) {
     const body = req.body;
-    let {first_name, last_name, email, password} = body;
+    let {firstName, lastName, email, password} = body;
 
     // Validates incoming body data
     if (!userValidator(body)) {
@@ -16,8 +16,8 @@ router.post('/', async function (req, res) {
 
     // Create user
     await User.create({
-        first_name: first_name,
-        last_name: last_name,
+        firstName: firstName,
+        lastName: lastName,
         email: email,
         password: bcrypt.hashSync(password, 10)
     })
