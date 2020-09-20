@@ -2,7 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const User = require('../database/models/User');
-const userValidator = require('../database/validators/userValidator')
+const userValidator = require('../database/validators/userValidator');
+const {decrypt} = require('../helpers/cipher');
 
 router.post('/', async function (req, res) {
     const body = req.body;
@@ -19,7 +20,7 @@ router.post('/', async function (req, res) {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        password: bcrypt.hashSync(password, 10)
+        password: bcrypt.hashSync(decrypt(password, 'APPLICATION_SECRET_KEY'), 10)
     })
         .then(function (user) {
             res.json({user: user});

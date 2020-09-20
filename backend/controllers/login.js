@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const User = require('../database/models/User');
+const {decrypt} = require('../helpers/cipher');
 
 router.post('/', async function (req, res) {
     const body = req.body;
@@ -23,7 +24,7 @@ router.post('/', async function (req, res) {
     }
 
     // Validate password
-    if (!bcrypt.compareSync(body.password, user.password)) {
+    if (!bcrypt.compareSync(decrypt(body.password, 'APPLICATION_SECRET_KEY'), user.password)) {
         res.status(403).json({
             err: 'The email and password you entered does not match'
         });

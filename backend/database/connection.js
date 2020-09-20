@@ -6,6 +6,8 @@ const sequelize = new Sequelize('store', 'postgres', 'postgres', {
     }
 });
 
-console.log(sequelize.authenticate());
+console.log(Boolean(sequelize.authenticate())
+    ? 'Successfully connected to Database'
+    : 'Error connecting with database');
 
 module.exports = sequelize;
